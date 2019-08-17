@@ -2,13 +2,19 @@
 // Created by yashmanian on 8/17/19.
 //
 #include <iostream>
+#include <fstream>
+#include <sstream>
+#include <cstdlib>
 
 int main()
 {
     int nx = 200;
     int ny = 100;
 
-    std::cout << "P3\n" << nx << " " << ny << "\n255\n";
+    std::ofstream ofs;
+    ofs.open("../rayTraceTest.ppm");
+
+    ofs << "P3\n" << nx << " " << ny << "\n255\n";
 
     for(int j = ny - 1; j >= 0 ; j--)
     {
@@ -20,9 +26,8 @@ int main()
             int ir = int(255.99*r);
             int ig = int(255.99*g);
             int ib = int(255.99*b);
-            std::cout << ir << " " << ig << " " << ib << "\n";
+            ofs << ir << " " << ig << " " << ib << "\n";
         }
     }
+    ofs.close();
 }
-
-
