@@ -3,8 +3,7 @@
 //
 #include <iostream>
 #include <fstream>
-#include <sstream>
-#include <cstdlib>
+#include "Vector3.h"
 
 int main()
 {
@@ -20,12 +19,10 @@ int main()
     {
         for (int i = 0; i < nx; i++)
         {
-            float r = float(i)/float(nx);
-            float g = float(j)/float(ny);
-            float b = 0.2;
-            int ir = int(255.99*r);
-            int ig = int(255.99*g);
-            int ib = int(255.99*b);
+            Vector3 col(float(i)/float(nx), float(j)/float(ny), 0.2);
+            int ir = int(255.99*col.x());
+            int ig = int(255.99*col.y());
+            int ib = int(255.99*col.z());
             ofs << ir << " " << ig << " " << ib << "\n";
         }
     }
