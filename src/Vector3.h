@@ -2,8 +2,8 @@
 // Created by yashmanian on 8/17/19.
 //
 
-#ifndef RAYTRACING_VECTOR3_H
-#define RAYTRACING_VECTOR3_H
+#ifndef VECTOR3_H
+#define VECTOR3_H
 #include <math.h>
 #include <stdlib.h>
 #include <iostream>
@@ -170,4 +170,4 @@ inline Vector3 unitVector(Vector3 v)
     return v/v.length();
 }
 
-#endif //RAYTRACING_VECTOR3_H
+#endif //VECTOR3_H

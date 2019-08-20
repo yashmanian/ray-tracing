@@ -4,6 +4,7 @@
 #include <iostream>
 #include <fstream>
 #include "Vector3.h"
+#include "Ray.h"
 
 int main()
 {
