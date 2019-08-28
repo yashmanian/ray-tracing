@@ -42,8 +42,8 @@ int main()
     {
         for (int i = 0; i < nx; i++)
         {
-            float u = float(i)/float(nx);
-            float v = float(j)/float(ny);
+            float u = static_cast<float>(i)/ static_cast<float>(nx);
+            float v = static_cast<float>(j)/ static_cast<float>(ny);
             Ray r(origin, lowerLeftCorner + u*horizontalVector + v*verticalVector);
             Vector3 col = color(r);
             int ir = int(255.99*col.x());
