@@ -5,22 +5,35 @@
 #include <fstream>
 #include "Ray.h"
 
-bool onSphere(const Vector3& center, float radius, const Ray& ray)
+float hitSphere(const Vector3& center, float radius, const Ray& ray)
 {
     Vector3 originToCenter = ray.origin() - center;
     float a = dot(ray.direction(), ray.direction());
     float b = 2.0f * dot(originToCenter, ray.direction());
     float c = dot(originToCenter, originToCenter) - radius*radius;
     float discriminant = b*b - 4*a*c;
-    return (discriminant > 0);
+    if(discriminant < 0)
+    {
+        return -1.0f;
+    }
+    else
+    {
+        return (-b -sqrt(discriminant))/(2.0f*a);
+    }
 }
 
 Vector3 color(const Ray& ray)
 {
-    if(onSphere(Vector3(0.0f, 0.0f, -1.0f), 0.5f, ray))
-        return Vector3(1.0f, 0.0f, 0.0f);
+    float t = hitSphere(Vector3(0.0f, 0.0f, -1.0f), 0.5f, ray);
+
+    if(t>0.0f)
+    {
+        Vector3 normal = unitVector(ray.pointAtParam(t) - Vector3(0.0f, 0.0f, -1.0f));
+        return 0.5f*Vector3(normal.x() + 1.0f, normal.y() + 1.0f, normal.z() + 1.0f);
+    }
+
     Vector3 unitDirection = unitVector(ray.direction());
-    float t = 0.5f * (unitDirection.y() + 1.0f);
+    t = 0.5f * (unitDirection.y() + 1.0f);
     return (1.0f - t)*Vector3(1.0f, 1.0f, 1.0f) + t*Vector3(0.5f, 0.7f, 1.0f);
 }
 
