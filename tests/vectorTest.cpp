@@ -53,9 +53,6 @@ TEST(vectorTest, operationTest)
     ASSERT_EQ(resultSum.x(), 3.0f);
     ASSERT_EQ(resultSum.y(), 1.0f);
     ASSERT_EQ(resultSum.z(), 1.0f);
-    std::cout << resultSum.x() << std::endl;
-    std::cout << resultSum.y() << std::endl;
-    std::cout << resultSum.z() << std::endl;
 
     // Element-wise difference between two vectors
     Vector3 resultDiff = v1 - v2;
