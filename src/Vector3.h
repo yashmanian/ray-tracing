@@ -94,12 +94,12 @@ inline Vector3 operator/(const Vector3& v1, const Vector3& v2)
 
 inline Vector3 operator*(float t, const Vector3& v)
 {
-    return Vector3(t * v.e[0], t * v.e[2], t * v.e[2]);
+    return Vector3(t * v.e[0], t * v.e[1], t * v.e[2]);
 }
 
 inline Vector3 operator/(const Vector3& v, float t)
 {
-    return Vector3(v.e[0]/t, v.e[2]/t, v.e[2]/t);
+    return Vector3(v.e[0]/t, v.e[1]/t, v.e[2]/t);
 }
 
 inline float dot(const Vector3& v1, const Vector3& v2)
@@ -109,8 +109,8 @@ inline float dot(const Vector3& v1, const Vector3& v2)
 
 inline Vector3 cross(const Vector3& v1, const Vector3& v2)
 {
-    return Vector3(v1.e[0]*v2.e[2] - v1.e[2]*v2.e[1],
-                    -v1.e[0]*v2.e[2] - v1.e[2]*v2.e[0],
+    return Vector3(v1.e[1]*v2.e[2] - v1.e[2]*v2.e[1],
+                    -(v1.e[0]*v2.e[2] - v1.e[2]*v2.e[0]),
                     v1.e[0]*v2.e[1] - v1.e[1]*v2.e[0]);
 
 }
