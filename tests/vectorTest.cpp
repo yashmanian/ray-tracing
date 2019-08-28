@@ -40,6 +40,42 @@ TEST(vectorTest, initTest)
     ASSERT_EQ(-1.0f*z, v3.z());
 }
 
+TEST(vectorTest, operationTest)
+{
+    float x1 = 1.0f;float y1 = -3.0f;float z1 = 2.0f;
+    float x2 = 2.0f;float y2 = 4.0f;float z2 = -1.0f;
+
+    Vector3 v1(x1, y1, z1);
+    Vector3 v2(x2, y2, z2);
+
+    // Element-wise sum of two vectors
+    Vector3 resultSum = v1 + v2;
+    ASSERT_EQ(resultSum.x(), 3.0f);
+    ASSERT_EQ(resultSum.y(), 1.0f);
+    ASSERT_EQ(resultSum.z(), 1.0f);
+    std::cout << resultSum.x() << std::endl;
+    std::cout << resultSum.y() << std::endl;
+    std::cout << resultSum.z() << std::endl;
+
+    // Element-wise difference between two vectors
+    Vector3 resultDiff = v1 - v2;
+    ASSERT_EQ(resultDiff.x(), -1.0f);
+    ASSERT_EQ(resultDiff.y(), -7.0f);
+    ASSERT_EQ(resultDiff.z(), 3.0f);
+
+    // Element-wise product of two vectors
+    Vector3 resultProd = v1 * v2;
+    ASSERT_EQ(resultProd.x(), 2.0f);
+    ASSERT_EQ(resultProd.y(), -12.0f);
+    ASSERT_EQ(resultProd.z(), -2.0f);
+
+    // Element-wise division of two vectors
+    Vector3 resultDiv = v1 / v2;
+    ASSERT_EQ(resultDiv.x(), 0.5f);
+    ASSERT_EQ(resultDiv.y(), -0.75f);
+    ASSERT_EQ(resultDiv.z(), -2.0f);
+}
+
 int main(int argc, char **argv)
 {
     testing::InitGoogleTest(&argc, argv);
