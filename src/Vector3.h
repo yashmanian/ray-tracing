@@ -49,7 +49,6 @@ public:
     }
 
     inline void makeUnitVector();
-
     float e[3]{};
 };
 
