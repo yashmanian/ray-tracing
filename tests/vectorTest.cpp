@@ -94,6 +94,10 @@ TEST(vectorTest, operationTest)
     ASSERT_EQ(resultCrossProd.x(), y1*z2 - y2*z1);
     ASSERT_EQ(resultCrossProd.y(), -(x1*z2 - x2*z1));
     ASSERT_EQ(resultCrossProd.z(), x1*y2 - x2*y1);
+
+    // Equivalience Test
+    bool equivalience = (v1 == v2);
+    ASSERT_FALSE(equivalience);
 }
 
 TEST(vectorTest, propertiesTest)

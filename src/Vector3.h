@@ -115,6 +115,11 @@ inline Vector3 cross(const Vector3& v1, const Vector3& v2)
 
 }
 
+inline bool operator==(const Vector3& v1, const Vector3& v2)
+{
+    return (v1.x() == v2.x() && v1.y() == v2.y() && v1.z() == v2.z());
+}
+
 inline Vector3& Vector3::operator+=(const Vector3& v)
 {
     e[0] += v.e[0];
